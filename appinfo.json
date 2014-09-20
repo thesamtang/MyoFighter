@@ -28,6 +28,21 @@
                 "file": "fonts/UbuntuMono-Regular.ttf",
                 "name": "MONO_FONT_14",
                 "type": "font"
+            },
+            {
+                "file": "images/shield_pebble.png",
+                "name": "IMAGES_SHIELD_PEBBLE_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/magic_peddle.png",
+                "name": "IMAGES_MAGIC_PEDDLE_PNG",
+                "type": "png"
+            },
+            {
+                "file": "images/punch_pebble.png",
+                "name": "IMAGES_PUNCH_PEBBLE_PNG",
+                "type": "png"
             }
         ]
     },
