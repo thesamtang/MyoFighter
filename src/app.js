@@ -4,21 +4,6 @@
  * Written by Sasha Heinen, Sam Tang, Angela Zhou at Hack the North 2014
  * This app works as an interface for the user, displaying status info
  */
-//var jq = require('jquery');
-//var fb = require('firebase');
-//var data = new fb.Firebase('https://rootbeerfighter.firebaseio.com');
-
-/*
-$.getScript('https://cdn.firebase.com/v0/firebase.js', function() {
-
-  var fb = new Firebase('https://rootbeerfighter.firebaseio.com');
-  console.log(fb.child('Hello'));
-
-});
-*/
-
-
-
 
 var gameSpace = new function() {
   var UI = require('ui');
@@ -29,7 +14,7 @@ var gameSpace = new function() {
   var playerIndex = 0;
   var oppIndex = 0;
   
-  setInterval(function () {getData()}, 10);
+  setInterval(function () {getData()}, 50);
   function getData() {
     ajax(
       {
@@ -37,7 +22,7 @@ var gameSpace = new function() {
         type: 'json'
       },
       function(data) {
-        console.log(data.player1.curentLife);
+        //console.log(data.player1.curentLife);
         updateHealth(data);
       },
       function(error) {
@@ -49,13 +34,13 @@ var gameSpace = new function() {
   function updateHealth(data) {
     var p1 = data.player1;
     var p2 = data.player2;
-    if(p1.count != playerIndex) {
+    if(p1.count > playerIndex && p1.count != playerIndex) {
       Vibe.vibrate('short');
       reduceHealth(playerHealth, p1.currentLife);
       showIcon(p1.mostRecentAttack);
       playerIndex++;
     }
-    if(p2.count != oppIndex) {
+    if(p2.count > oppIndex && p2.count != oppIndex) {
       Vibe.vibrate('short');
       reduceHealth(opponentHealth, p2.currentLife);
       oppIndex++;
